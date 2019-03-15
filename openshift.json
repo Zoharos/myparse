@@ -214,6 +214,10 @@
                     "value": "${MASTER_KEY}"
                   },
                   {
+                    "name": "REST_API_KEY",
+                    "value": "${REST_API_KEY}"
+                  },
+                  {
                     "name": "PARSE_MOUNT",
                     "value": "${PARSE_MOUNT}"
                   }
