@@ -436,7 +436,7 @@
       "displayName": "Git Repository URL",
       "description": "The URL of the repository with your application source code.",
       "required": true,
-      "value": "https://github.com/ParsePlatform/parse-server-example.git"
+      "value": "https://github.com/Zoharos/myparse.git"
     },
     {
       "name": "SOURCE_REPOSITORY_REF",
@@ -517,7 +517,8 @@
       "name": "MASTER_KEY",
       "displayName": "Parse Master Key",
       "description": "A key that overrides all permissions. Keep this secret",
-      "value": ""
+      "generate": "expression",
+      "from": "[a-zA-Z0-9]{16}"
     },
     {
       "name": "PARSE_MOUNT",
