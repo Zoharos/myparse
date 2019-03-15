@@ -521,6 +521,13 @@
       "from": "[a-zA-Z0-9]{16}"
     },
     {
+      "name": "REST_API_KEY",
+      "displayName": "Parse Rest API Key",
+      "description": "the rest api key for http requests",
+      "generate": "expression",
+      "from": "[a-zA-Z0-9]{5}"
+    },
+    {
       "name": "PARSE_MOUNT",
       "displayName": "Parse API route",
       "description": "Configure Parse API route",
