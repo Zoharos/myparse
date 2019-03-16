@@ -210,6 +210,10 @@
                     "value": "${APP_ID}"
                   },
                   {
+                    "name": "APP_NAME",
+                    "value": "${APP_NAME}"
+                  },
+                  {
                     "name": "MASTER_KEY",
                     "value": "${MASTER_KEY}"
                   },
@@ -515,6 +519,12 @@
       "name": "APP_ID",
       "displayName": "App's Unique Identifier",
       "description": "A unique identifier for your app",
+      "value": ""
+    },
+    {
+      "name": "APP_NAME",
+      "displayName": "App's display name",
+      "description": "The display for the app",
       "value": ""
     },
     {
