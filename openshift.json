@@ -226,6 +226,22 @@
                     "value": "${PARSE_MOUNT}"
                   }
                 ],
+                "readinessProbe": {
+                  "timeoutSeconds": 3,
+                  "initialDelaySeconds": 3,
+                  "httpGet": {
+                    "path": "/test",
+                    "port": 8080
+                  }
+                },
+                "livenessProbe": {
+                    "timeoutSeconds": 3,
+                    "initialDelaySeconds": 30,
+                    "httpGet": {
+                        "path": "/test",
+                        "port": 8080
+                    }
+                },
                 "resources": {
                     "limits": {
                         "memory": "${MEMORY_LIMIT}"

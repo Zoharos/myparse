@@ -28,6 +28,7 @@ const api = new ParseServer({
 // If you wish you require them, you can set them as options in the initialization above:
 // javascriptKey, restAPIKey, dotNetKey, clientKey
 
+const options = { allowInsecureHTTP: false };
 const dashboard = new ParseDashboard({
   apps: [
     {
@@ -37,7 +38,7 @@ const dashboard = new ParseDashboard({
       appName: process.env.APP_NAME || "MyApp"
     }
   ]
-});
+}, options);
 
 const app = express();
 
@@ -65,14 +66,14 @@ app.get('/test', function(req, res) {
 
 const port = process.env.PORT || 1337;
 
-app.use(function(req, res, next) {
-  if(!req.secure) {
-    return res.redirect(['https://', req.get('Host'), req.url].join(''));
-  }
-  next();
-});
+// app.use(function(req, res, next) {
+//   if(!req.secure) {
+//     return res.redirect(['https://', req.get('Host'), req.url].join(''));
+//   }
+//   next();
+// });
 
-const httpServer = require('https').createServer(credentials, app);
+const httpServer = require('http').createServer(app);
 httpServer.listen(port, function() {
     console.log('parse-server-example running on port ' + port + '.');
 });
