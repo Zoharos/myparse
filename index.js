@@ -28,7 +28,7 @@ const api = new ParseServer({
 // If you wish you require them, you can set them as options in the initialization above:
 // javascriptKey, restAPIKey, dotNetKey, clientKey
 
-const options = { allowInsecureHTTP: false };
+const options = { allowInsecureHTTP: true };
 const dashboard = new ParseDashboard({
   apps: [
     {
