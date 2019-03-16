@@ -5,6 +5,7 @@ const express = require('express');
 const ParseServer = require('parse-server').ParseServer;
 const ParseDashboard = require('parse-dashboard');
 const path = require('path');
+const { credentials } = require('./encryption');
 
 const databaseUri = process.env.DATABASE_URI || process.env.MONGODB_URI;
 
@@ -63,7 +64,7 @@ app.get('/test', function(req, res) {
 });
 
 const port = process.env.PORT || 1337;
-const httpServer = require('http').createServer(app);
+const httpServer = require('https').createServer(credentials, app);
 httpServer.listen(port, function() {
     console.log('parse-server-example running on port ' + port + '.');
 });
