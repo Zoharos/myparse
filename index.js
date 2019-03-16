@@ -64,6 +64,14 @@ app.get('/test', function(req, res) {
 });
 
 const port = process.env.PORT || 1337;
+
+app.use(function(req, res, next) {
+  if(!req.secure) {
+    return res.redirect(['https://', req.get('Host'), req.url].join(''));
+  }
+  next();
+});
+
 const httpServer = require('https').createServer(credentials, app);
 httpServer.listen(port, function() {
     console.log('parse-server-example running on port ' + port + '.');
