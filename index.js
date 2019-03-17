@@ -37,6 +37,12 @@ const dashboard = new ParseDashboard({
       masterKey: process.env.MASTER_KEY || "myMasterKey",
       appName: process.env.APP_NAME || "MyApp"
     }
+  ],
+  users: [
+    {
+      user: "zohar",
+      pass: "zohar"
+    }
   ]
 }, options);
 
