@@ -32,7 +32,7 @@ const options = { allowInsecureHTTP: true };
 const dashboard = new ParseDashboard({
   apps: [
     {
-      serverURL: "https://parse-server-example-parse12.1d35.starter-us-east-1.openshiftapps.com/parse",//process.env.SERVER_URL || "http://localhost:1337/parse",
+      serverURL: window.location.protocol + '//' + window.location.hostname + '/parse',//process.env.SERVER_URL || "http://localhost:1337/parse",
       appId: process.env.APP_ID || "myAppId",
       masterKey: process.env.MASTER_KEY || "myMasterKey",
       appName: process.env.APP_NAME || "MyApp"
