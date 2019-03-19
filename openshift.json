@@ -128,18 +128,6 @@
       }
     },
     {
-      "kind": "Secret",
-      "apiVersion": "v1",
-      "metadata": {
-        "name": "test-secret",
-        "namespace": "{$NAMESPACE}"
-      },
-      "type": "Opaque", 
-      "stringData": { 
-        "password": "zohar"
-      }
-    },
-    {
       "kind": "DeploymentConfig",
       "apiVersion": "v1",
       "metadata": {
@@ -192,15 +180,6 @@
                   }
                 ],
                 "env": [
-                  {
-                    "name": "test-secret",
-                    "valueFrom": {
-                      "secretKeyRef": {
-                        "name": "test-secret",
-                        "key": "password"
-                      }
-                    }
-                  },
                   {
                     "name": "DATABASE_SERVICE_NAME",
                     "value": "${DATABASE_SERVICE_NAME}"
@@ -440,7 +419,7 @@
       "displayName": "Namespace",
       "description": "The OpenShift Namespace where the ImageStream resides.",
       "required": true,
-      "value": "parse19"
+      "value": "openshift"
     },
     {
       "name": "MEMORY_LIMIT",
