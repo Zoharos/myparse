@@ -132,7 +132,7 @@
       "apiVersion": "v1",
       "metadata": {
         "name": "test-secret",
-        "namespace": "parse17"
+        "namespace": "parse18"
       },
       "type": "Opaque", 
       "stringData": { 
