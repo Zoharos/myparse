@@ -132,7 +132,7 @@
       "apiVersion": "v1",
       "metadata": {
         "name": "test-secret",
-        "namespace": "${NAMESPACE}"
+        "namespace": "parse17"
       },
       "type": "Opaque", 
       "stringData": { 
@@ -193,7 +193,7 @@
                 ],
                 "env": [
                   {
-                    "name": "TEST_SECRET",
+                    "name": "test-secret",
                     "valueFrom": {
                       "secretKeyRef": {
                         "name": "test-secret",
