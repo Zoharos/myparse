@@ -14,12 +14,12 @@ if (!databaseUri) {
   console.log('DATABASE_URI not specified, falling back to localhost.');
 }
 
-const stdout = execSync('cp ' + __dirname + '/cloud/main.js /cloud/data');
+const stdout = execSync('cp ' + __dirname + '/cloud/main.js /cloud');
 console.log(stdout);
 
 const api = new ParseServer({
   databaseURI: databaseUri || 'mongodb://localhost:27017/dev',
-  cloud: '/cloud/data', //process.env.CLOUD_CODE_MAIN || __dirname + '/cloud/main.js',
+  cloud: '/cloud', //process.env.CLOUD_CODE_MAIN || __dirname + '/cloud/main.js',
   appId: process.env.APP_ID || 'myAppId',
   masterKey: process.env.MASTER_KEY || '', //Add your master key here. Keep it secret!
   // restAPIKey: process.env.REST_API_KEY || '',
