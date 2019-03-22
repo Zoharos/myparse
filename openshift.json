@@ -270,7 +270,7 @@
                 "volumeMounts": [
                   {
                     "name": "cloud-data",
-                    "mountPath": "/cloud/data"
+                    "mountPath": "/cloud"
                   }
                 ]
               }
