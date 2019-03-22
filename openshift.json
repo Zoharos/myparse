@@ -139,7 +139,7 @@
         ],
         "resources": {
           "requests": {
-            "storage": "${VOLUME_CAPACITY_CLOUD}"
+            "storage": "1Gi"
           }
         }
       }
