@@ -4,6 +4,7 @@
 const express = require('express');
 const ParseServer = require('parse-server').ParseServer;
 const ParseDashboard = require('parse-dashboard');
+const { execSync } = require('child_process');
 const path = require('path');
 const { credentials } = require('./encryption');
 
@@ -13,9 +14,12 @@ if (!databaseUri) {
   console.log('DATABASE_URI not specified, falling back to localhost.');
 }
 
+const stdout = execSync('cp ' + __dirname + '/cloud/main.js /cloud/data');
+console.log(stdout);
+
 const api = new ParseServer({
   databaseURI: databaseUri || 'mongodb://localhost:27017/dev',
-  cloud: process.env.CLOUD_CODE_MAIN || __dirname + '/cloud/main.js',
+  cloud: '/cloud/data', //process.env.CLOUD_CODE_MAIN || __dirname + '/cloud/main.js',
   appId: process.env.APP_ID || 'myAppId',
   masterKey: process.env.MASTER_KEY || '', //Add your master key here. Keep it secret!
   // restAPIKey: process.env.REST_API_KEY || '',

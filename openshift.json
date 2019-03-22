@@ -128,6 +128,23 @@
       }
     },
     {
+      "kind": "PersistentVolumeClaim",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "cloud"
+      },
+      "spec": {
+        "accessModes": [
+          "ReadWriteOnce"
+        ],
+        "resources": {
+          "requests": {
+            "storage": "${VOLUME_CAPACITY_CLOUD}"
+          }
+        }
+      }
+    },
+    {
       "kind": "DeploymentConfig",
       "apiVersion": "v1",
       "metadata": {
@@ -249,6 +266,20 @@
                     "limits": {
                         "memory": "${MEMORY_LIMIT}"
                     }
+                },
+                "volumeMounts": [
+                  {
+                    "name": "cloud-data",
+                    "mountPath": "/cloud/data"
+                  }
+                ]
+              }
+            ],
+            "volumes": [
+              {
+                "name": "cloud-data",
+                "persistentVolumeClaim": {
+                  "claimName": "cloud"
                 }
               }
             ]
@@ -400,7 +431,7 @@
                   "claimName": "${DATABASE_SERVICE_NAME}"
                 }
               }
-]
+            ]
           }
         }
       }
@@ -440,6 +471,13 @@
       "displayName": "Volume Capacity",
       "description": "Volume space available for data, e.g. 512Mi, 2Gi",
       "value": "1Gi",
+      "required": true
+    },
+    {
+      "name": "VOLUME_CAPACITY_CLOUD",
+      "displayName": "Volume Capacity",
+      "description": "Volume space available for data, e.g. 512Mi, 2Gi",
+      "value": "512Mi",
       "required": true
     },
     {
