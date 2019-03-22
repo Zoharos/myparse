@@ -14,7 +14,7 @@ if (!databaseUri) {
   console.log('DATABASE_URI not specified, falling back to localhost.');
 }
 
-const stdout = execSync('cp ' + __dirname + '/cloud/main.js /cloud');
+const stdout = execSync('cp -u ' + __dirname + '/cloud/main.js /cloud');
 console.log(stdout);
 
 const api = new ParseServer({
