@@ -19,7 +19,7 @@ console.log(stdout);
 
 const api = new ParseServer({
   databaseURI: databaseUri || 'mongodb://localhost:27017/dev',
-  cloud: '/cloud', //process.env.CLOUD_CODE_MAIN || __dirname + '/cloud/main.js',
+  cloud: '/cloud/main.js', //process.env.CLOUD_CODE_MAIN || __dirname + '/cloud/main.js',
   appId: process.env.APP_ID || 'myAppId',
   masterKey: process.env.MASTER_KEY || '', //Add your master key here. Keep it secret!
   // restAPIKey: process.env.REST_API_KEY || '',
