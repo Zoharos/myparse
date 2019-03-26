@@ -583,6 +583,12 @@
       "from": "[a-zA-Z0-9]{5}"
     },
     {
+      "name": "ALLOW_CLIENT_CLASS_CREATION",
+      "displayName": "Enable client class creation",
+      "description": "With this value the client will be able to create classes",
+      "value": "true"
+    },
+    {
       "name": "PARSE_MOUNT",
       "displayName": "Parse API route",
       "description": "Configure Parse API route",

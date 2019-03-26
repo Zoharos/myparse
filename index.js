@@ -6,7 +6,6 @@ const ParseServer = require('parse-server').ParseServer;
 const ParseDashboard = require('parse-dashboard');
 const { execSync } = require('child_process');
 const path = require('path');
-const { credentials } = require('./encryption');
 
 const databaseUri = process.env.DATABASE_URI || process.env.MONGODB_URI;
 
@@ -14,7 +13,8 @@ if (!databaseUri) {
   console.log('DATABASE_URI not specified, falling back to localhost.');
 }
 
-const stdout = execSync('cp -u ' + __dirname + '/cloud/main.js /cloud');
+const stdout = execSync('cp -u ' + __dirname + '/cloud/{main.js,liveClasses.js} /cloud');
+const liveClasses = require('/cloud');
 console.log(stdout);
 
 const api = new ParseServer({
@@ -26,7 +26,7 @@ const api = new ParseServer({
   serverURL: process.env.SERVER_URL || 'http://localhost:1337/parse',  // Don't forget to change to https if needed
   allowClientClassCreation: process.env.ALLOW_CLIENT_CLASS_CREATION === "true",
   liveQuery: {
-    classNames: ["Posts", "Comments"] // List of classes to support for query subscriptions
+    classNames: liveClasses // List of classes to support for query subscriptions
   }
 });
 // Client-keys like the javascript key or the .NET key are not necessary with parse-server
@@ -77,13 +77,6 @@ app.get('/test', function(req, res) {
 });
 
 const port = process.env.PORT || 1337;
-
-// app.use(function(req, res, next) {
-//   if(!req.secure) {
-//     return res.redirect(['https://', req.get('Host'), req.url].join(''));
-//   }
-//   next();
-// });
 
 const httpServer = require('http').createServer(app);
 httpServer.listen(port, function() {
