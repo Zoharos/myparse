@@ -13,8 +13,10 @@ if (!databaseUri) {
   console.log('DATABASE_URI not specified, falling back to localhost.');
 }
 
-const stdout = execSync('cp -u ' + __dirname + '/cloud/{main.js,liveClasses.js} /cloud');
-const liveClasses = require('/cloud');
+const envClasses = process.env.LIVE_CLASSES;
+const liveClasses = envClasses.split(",");
+
+const stdout = execSync('cp -u ' + __dirname + '/cloud/main.js /cloud');
 console.log(stdout);
 
 const api = new ParseServer({

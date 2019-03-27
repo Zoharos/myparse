@@ -589,6 +589,12 @@
       "value": "true"
     },
     {
+      "name": "LIVE_CLASSES",
+      "displayName": "Default live classes",
+      "description": "The default value for the live query classes",
+      "value": "Comments,Posts"
+    },
+    {
       "name": "PARSE_MOUNT",
       "displayName": "Parse API route",
       "description": "Configure Parse API route",
