@@ -242,6 +242,14 @@
                     "value": "${REST_API_KEY}"
                   },
                   {
+                    "name": "ALLOW_CLIENT_CLASS_CREATION",
+                    "value": "${ALLOW_CLIENT_CLASS_CREATION}"
+                  },
+                  {
+                    "name": "LIVE_CLASSES",
+                    "value": "${LIVE_CLASSES}"
+                  },
+                  {
                     "name": "PARSE_MOUNT",
                     "value": "${PARSE_MOUNT}"
                   }
