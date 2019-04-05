@@ -4,17 +4,16 @@
 const express = require('express');
 const ParseServer = require('parse-server').ParseServer;
 const ParseDashboard = require('parse-dashboard');
-const { execSync } = require('child_process');
 const path = require('path');
 
-const databaseUri = process.env.DATABASE_URI || process.env.MONGODB_URI;
+const databaseUri = 'mongodb+srv://parse:fTIqjcegIsfRGVie@golancorporation-cyaxt.gcp.mongodb.net/Real-Nadlan?retryWrites=true';
 
 if (!databaseUri) {
   console.log('DATABASE_URI not specified, falling back to localhost.');
 }
 
 const api = new ParseServer({
-  databaseURI: databaseUri || 'mongodb+srv://parse:fTIqjcegIsfRGVie@golancorporation-cyaxt.gcp.mongodb.net/test?retryWrites=true',
+  databaseURI: databaseUri || 'mongodb+srv://parse:fTIqjcegIsfRGVie@golancorporation-cyaxt.gcp.mongodb.net/Real-Nadlan?retryWrites=true',
   cloud: process.env.CLOUD_CODE_MAIN || __dirname + '/cloud/main.js',
   appId: process.env.APP_ID || 'myAppId',
   masterKey: process.env.MASTER_KEY || '', //Add your master key here. Keep it secret!
