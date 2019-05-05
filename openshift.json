@@ -2,15 +2,15 @@
   "kind": "Template",
   "apiVersion": "v1",
   "metadata": {
-    "name": "parse-server-example",
+    "name": "parse-server",
     "annotations": {
-      "description": "An example Parse API server using the parse-server module",
+      "description": "Parse API server using the parse-server module",
       "tags": "quickstart,nodejs,mongodb,parse",
       "iconClass": "icon-nodejs"
     }
   },
   "labels": {
-    "template": "parse-server-example"
+    "template": "parse-server"
   },
   "objects": [
     {
@@ -146,7 +146,7 @@
             "imageChangeParams": {
               "automatic": true,
               "containerNames": [
-                "parse-server-example"
+                "parse-server"
               ],
               "from": {
                 "kind": "ImageStreamTag",
@@ -172,7 +172,7 @@
           "spec": {
             "containers": [
               {
-                "name": "parse-server-example",
+                "name": "parse-server",
                 "image": " ",
                 "ports": [
                   {
@@ -412,7 +412,7 @@
       "displayName": "Name",
       "description": "The name assigned to all of the frontend objects defined in this template.",
       "required": true,
-      "value": "parse-server-example"
+      "value": "parse-server"
     },
     {
       "name": "NAMESPACE",
