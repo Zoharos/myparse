@@ -39,7 +39,8 @@ const options = { allowInsecureHTTP: true };
 const dashboard = new ParseDashboard({
   apps: [
     {
-      serverURL: "https://parse-server-example-" + process.env.PROJECT_NAME + ".1d35.starter-us-east-1.openshiftapps.com/parse",
+      serverURL: process.env.PARSE_URL,
+      //"https://parse-server-example-" + process.env.PROJECT_NAME + ".1d35.starter-us-east-1.openshiftapps.com/parse",
       //"https://parse-server-example-" + process.env.PROJECT_NAME + ".7e14.starter-us-west-2.openshiftapps.com/parse",
       appId: process.env.APP_ID || "myAppId",
       masterKey: process.env.MASTER_KEY || "myMasterKey",
@@ -48,8 +49,8 @@ const dashboard = new ParseDashboard({
   ],
   users: [
     {
-      user: "zohar",
-      pass: "zohar"
+      user: process.env.DASHBOARD_USER,
+      pass: process.env.DASHBOARD_PASS
     }
   ]
 }, options);
